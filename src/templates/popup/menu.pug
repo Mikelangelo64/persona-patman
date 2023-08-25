@@ -1,0 +1,44 @@
+-
+  const menuPopupList = [
+    {
+      name: 'Про Нас',
+      href: '#',
+    },
+    {
+      name: 'Іміграція',
+      href: '#',
+    },
+    {
+      name: 'Рекрутинг',
+      href: '#',
+    },
+    {
+      name: 'Партнерство',
+      href: '#',
+    },
+    {
+      name: 'Команда',
+      href: '#',
+    },
+    {
+      name: 'Кейси',
+      href: '#',
+    },
+    {
+      name: 'Контакти',
+      href: '#',
+    }
+  ];
+
+button.popup__close
+  img(src=require('@/assets/img/popup-close-black.svg'), alt='close')
+
+nav.menu
+  ul.menu-list
+    each item in menuPopupList
+      li.menu-list__item
+        a.menu__link(
+          class=`${item.goto !== 'false' ? 'anchor' : ''}`,
+          href=`${item.href}`,
+          data-goto=`${item.goto}`
+        ) #{ item.name }

@@ -1,0 +1,109 @@
+@import './reset';
+
+@mixin button {
+  @include reset-button;
+  position: relative;
+  z-index: 0;
+
+  display: inline-flex;
+  //max-width: px-to-rem(134);
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+
+  //border: 1px solid var(--color-theme, var(--color-highlight));
+  overflow: hidden;
+
+  @include transition((color 0.4s, clip-path 0.6s));
+  transform: translateZ(0);
+
+  text-decoration: unset;
+  font-weight: 500;
+  line-height: 120%;
+  font-size: px-to-rem(16);
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+
+  color: var(--color-theme, var(--color-highlight));
+  background-color: var(--color-reverse, var(--color-black));
+  
+  @include viewport-tablet-min {
+    padding: px-to-rem(14) px-to-rem(40);
+  }
+  
+  @include viewport-phone {
+    padding: px-to-rem(12) px-to-rem(28);
+  }
+
+  @include hover-focus-visible {
+    @include non-mobile-device {
+      clip-path: polygon(10% 0%, 100% 0, 100% 86%, 80% 100%, 0 100%, 0 16%);
+      color: var(--color-reverse, var(--color-black));
+
+      &::before {
+        transform: translate(0, 0);
+      }
+
+      svg {
+        path {
+          fill: var(--color-reverse, var(--color-black));
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+
+    @include transition(transform 0.4s);
+    transform: translate(0, 100%);
+    background-color: var(--color-theme, var(--color-highlight));
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  svg {
+    position: relative;
+    z-index: 2;
+
+    width: px-to-rem(24);
+    height: px-to-rem(24);
+
+    path {
+      @include transition(fill 0.4s);
+      fill: var(--color-theme, var(--color-highlight));
+    }
+  }
+
+  > * + * {
+    margin-left: px-to-rem(8);
+  }
+}
+
+@mixin button-light {
+  --color-theme: var(--color-white);
+  --color-reverse: var(--color-blue-100);
+  @include button;
+}
+
+@mixin button-dark {
+  --color-theme: var(--color-blue-100);
+  --color-reverse: var(--color-white);
+  @include button;
+
+  &::after {
+    content: '';
+    @include absolute-fullsize;
+    border: 1px solid var(--color-blue-100);
+  }
+}

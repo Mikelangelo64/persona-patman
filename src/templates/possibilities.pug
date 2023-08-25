@@ -1,0 +1,111 @@
+-
+  const possibilitiesCards = [
+    {
+      image: '@/assets/img/possibilities/possibilities-1.svg',
+      title: 'Імміграційне право',
+      typography: `
+        <p>
+          Ми захищаємо іноземців за кордоном. 
+          <br/>
+          <br/>
+          Ми готові проконсультувати про всі, дозволені законом, варіанти отримання посвідки на проживання чи громадянства для вас чи ваших іноземних працівників. 
+          <br/>
+          <br/>
+          Ми надаємо послуги в Україні, Литві і Латвії.
+        </p>
+      `,
+      link: {
+        name: 'Детальніше',
+        href: '#'
+      }
+    },
+    {
+      image: '@/assets/img/possibilities/possibilities-2.svg',
+      title: 'Легалізація іноземців',
+      typography: `
+        <p>
+          Наша команда допоможе вам пройти процедуру легалізації в Україні, Литві, Латві та інших країнах ЄС. 
+          <br/>
+          <br/>
+          Ви спілкуєтесь тільки з нами.           
+          <br/>
+          <br/>
+          Ми беремо на себе всю роботу щодо коммунікації з прикордонною, міграційною, податковою, митною службами.
+        </p>
+      `,
+      link: {
+        name: 'Детальніше',
+        href: '#'
+      }
+    },
+    {
+      image: '@/assets/img/possibilities/possibilities-3.svg',
+      title: 'Пошук іноземних працівників',
+      typography: `
+        <p>
+          Вам потрібен технічних чи низькокваліфікований персонал? 
+          <br/>
+          <br/>
+          Ми швидко знаходимо робітників - вихідців з України, Казахстану, країн Середньої Азії і Кавказу. 
+          <br/>
+          <br/>
+          Ми спеціалізуємось на персоналі для заводів і фабрик, сільского господарства, транспорту і сфери послуг для HoReCa.
+        </p>
+      `,
+      link: {
+        name: 'Детальніше',
+        href: '#'
+      }
+    },
+    {
+      image: '@/assets/img/possibilities/possibilities-4.svg',
+      title: 'Працевлаштування за кордоном',
+      typography: `
+        <p>
+          Ви працюєте за кордоном і хочете змінити роботу? 
+          <br/>
+          <br/>
+          Наша команда зїднає вас з новими роботодавцями і забезпечить легальне працевлаштування. 
+          <br/>
+          <br/>
+          Ми спеціалізуємось на працевлаштуванні в Німеччині, Латвії, Литві, Чехії, Великобританії і Україні.
+        </p>
+      `,
+      link: {
+        name: 'Детальніше',
+        href: '#'
+      }
+    }
+  ];
+
+section.possibilities
+  ._container
+    .possibilities__wrapper
+      h2.possibilities__title Наші можливості
+
+      ul.possibilities__list.cards-list
+        each item, index in possibilitiesCards
+          li.card
+            .card__container
+              .card__inner
+                .card__header
+                  .card__label
+                    img(
+                      src=require(`${item.image}`),
+                      alt=`possibilities-${index + 1}`
+                    )
+
+                  h3.card__title!= item.title
+
+                .card__typography!= item.typography
+
+                if item.link.name
+                  a.card-link.link-more(href=`${item.link.href}`)
+                    span.link-more__text= item.link.name
+
+                    span.link-more__label
+                      img(
+                        src=require('@/assets/img/arrow-more.svg'),
+                        alt='possibilities-details',
+                        draggable='false'
+                      )

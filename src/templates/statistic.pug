@@ -1,0 +1,45 @@
+-
+  const statisticList = [
+    {
+      value: '6800',
+      hasPlus: 'true',
+      name: `
+        працівників,<br/> задоволених нашими послугами з їх працевлаштування
+      `
+    },
+    {
+      value: '10',
+      hasPlus: 'true',
+      name: `
+        Для вибору<br/> прцевлаштування
+      `
+    },
+    {
+      value: '300',
+      hasPlus: 'true',
+      name: `
+      компаній,<br/> задоволених результатами роботи з нами
+      `
+    },
+    {
+      value: '25',
+      hasPlus: 'false',
+      name: `
+        професіоналів<br/> в нашій команді
+      `
+    },
+  ];
+
+section.statistic
+  ._container
+    .statistic__wrapper
+      h2.statistic__title Бренд, що має репутацію
+
+      ul.statistic-list
+        each item in statisticList
+          li.statistic-list__item
+            p.statistic-list__value.counter(
+              class=`${item.hasPlus === 'true' ? 'has-plus' : ''}`,
+              data-value=`${item.value}`
+            )= item.value
+            p.statistic-list__name!= item.name

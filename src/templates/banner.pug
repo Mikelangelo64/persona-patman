@@ -1,0 +1,32 @@
+section.banner(data-animate='clip-path')
+  .banner-bg
+    .banner-bg__media
+      img(src=require('@/assets/img/banner.jpg'), alt='banner')
+
+  ._container.banner__container
+    .banner__wrapper
+      .banner-slider.swiper
+        .swiper-wrapper
+          .swiper-slide
+            .banner-slider__item
+              h1.banner__title!= 'Імміграція <br/>і легалізація'
+
+              p.banner__subtitle Ми знаємо як зроби процес імміграції легким і приємним
+
+              a.banner__button.button-light(
+                href='#',
+                target='_blank',
+                rel='noreferrer'
+              ) 
+                span Докладніше
+
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 13L18.17 13L15.59 15.59L17 17L22 12L17 7L15.59 8.41L18.17 11L2 11L2 13Z" fill="white"/>
+                </svg>
+
+          .swiper-slide
+            .banner-slider__item
+              h1.banner__title Імміграція і легалізація
+
+      .banner-slider-controls
+        .banner-slider-pagination pagination

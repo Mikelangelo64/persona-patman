@@ -1,0 +1,66 @@
+-
+  const menuList = [
+    {
+      name: 'Про Нас',
+      href: '#',
+    },
+    {
+      name: 'Іміграція',
+      href: '#',
+    },
+    {
+      name: 'Рекрутинг',
+      href: '#',
+    },
+    {
+      name: 'Партнерство',
+      href: '#',
+    },
+    {
+      name: 'Команда',
+      href: '#',
+    },
+    {
+      name: 'Кейси',
+      href: '#',
+    },
+    {
+      name: 'Контакти',
+      href: '#',
+    }
+  ];
+
+
+header.header
+  ._container
+    .header__wrapper
+      a.logo-link.header__logo(href='/') 
+        img(
+          src=require('@/assets/img/logo.svg'),
+          alt='logo',
+          draggable='false'
+        )
+
+      nav.menu.header__menu
+        ul.menu-list
+          each item in menuList
+            li.menu-list__item
+              a.menu__link(href=`${item.href}`) #{ item.name }
+
+      .header__buttons
+        ul.menu__lang
+          li
+            span.lang-item.lang-item-current eng
+              img(
+                src=require('@/assets/img/arrow-down.svg'),
+                alt='language toggle'
+              )
+
+            ul
+              li.lang-item.lang-item-1.lang-item-en.lang-item-first
+                a(lang='rus-RU', hreflang='rus-RU', href='#1') ua
+
+        button.menu-burger.popup-open(data-popup='_popup-menu')
+          span
+
+  include @/layout/popup.pug
