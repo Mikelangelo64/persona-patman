@@ -1,3 +1,137 @@
+-
+  const footerNavigation = [
+    [
+      {
+        href: '#',
+        name: 'Про нас'
+      },
+      {
+        href: '#',
+        name: 'Команда'
+      },
+      {
+        href: '#',
+        name: 'Партнерство'
+      },
+      {
+        href: '#',
+        name: 'Про Боно'
+      },
+      {
+        href: '#',
+        name: 'Новини'
+      }
+    ],
+    [
+      {
+        href: '#',
+        name: 'Імміграція'
+      },
+      {
+        href: '#',
+        name: 'Легалізація'
+      },
+      {
+        href: '#',
+        name: 'Кейси'
+      }
+    ],
+    [
+      {
+        href: '#',
+        name: 'Рекрутинг'
+      },
+      {
+        href: '#',
+        name: 'Адаптація'
+      },
+      {
+        href: '#',
+        name: 'Кейси'
+      },
+      {
+        href: '#',
+        name: 'Наші партнери'
+      }
+    ],
+    [
+      {
+        href: '#',
+        name: 'Для урядів'
+      },
+      {
+        href: '#',
+        name: 'Для місцевої влади'
+      },
+      {
+        href: '#',
+        name: 'Для донорів і NGO'
+      },
+      {
+        href: '#',
+        name: 'Для банків і фінтеху'
+      },
+      {
+        href: '#',
+        name: 'Для компаній'
+      },
+      {
+        href: '#',
+        name: 'Для мігрантів'
+      }
+    ],
+  ];
+
+  const footerLinks = [
+    {
+      href: '#',
+      name: 'Terms of Use'
+    },
+    {
+      href: '#',
+      name: 'Privacy Policy'
+    },
+    {
+      href: '#',
+      name: 'Cookie Policy'
+    },
+    {
+      href: '#',
+      name: 'Disclaimer'
+    }
+  ];
+
 footer.footer
-  ._container
-    .footer__wrapper footer
+  include @/templates/footer-additional.pug
+
+  ._container.footer__container
+    .footer__wrapper
+      nav.footer-navigation
+        ul.footer-navigation__list
+          each column in footerNavigation
+            li.footer-navigation__li
+              ul.footer-navigation__col
+                each item in column
+                  li.footer-navigation__row
+                    a.footer-navigation__item(href=`${item.href}`)= item.name
+
+      .footer-bottom
+        .footer-bottom__item
+          p.footer__copyright Ó 2023 Persona Patman LLC | All Rights Reserved
+
+        .footer-bottom__item
+          ul.footer-bottom__list
+            each item in footerLinks
+              li.footer-bottom__list__li
+                a.footer-bottom___link(
+                  href=`${item.href}`,
+                  target='_blank',
+                  rel='noreferrer'
+                )= item.name
+
+        .footer-bottom__item
+          a.develop(href='#', target='_blank', rel='noreferrer')
+            span.develop__text Разработка сайта
+
+            span.develop__img
+              img(src=require('@/assets/img/impulse.svg'), alt='impulse')

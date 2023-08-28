@@ -101,7 +101,8 @@ ol {
   @include button-light;
 }
 
-section {
+section,
+.section {
   overflow-x: hidden;
 
   @include viewport-desktop {
@@ -176,3 +177,4 @@ section {
 @import './layout/possibilities';
 @import './layout/news';
 @import './layout/statistic';
+@import './layout/footer-additional';
