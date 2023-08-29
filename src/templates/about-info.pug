@@ -1,0 +1,125 @@
+-
+  const aboutInfoList = [
+    {
+      specialClass: '',
+      title: {
+        isStarred: 'false',
+        value: 'Про нас'
+      },
+      typography: `
+        <p>
+          Ми - команда кваліфікованих юристів і рекрутерів, яка працює вже понад 5 років, щоб зробити процес імміграції і працевлатування за кордоном комфортним і безпечним.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p>
+          Ми спеціалізуємось на всьому комплексі міграційно-рекрутингових послуг для населення, підприємців і корпорацій. Завдяки нашій експертизі і турботливості ви отримаєте нашу підтримку під час імміграції, легалізації, працевлаштування і адаптації за кордоном.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p>
+          Наша перша ключова компетенція - імміграційне право. Ми сприяємо вирішеню усіх питань клієнтів, які стосуються імміграції і легалізації їх самих, їхніх близьких або їх найманих працівників за кордоном. Переважна більшість наших клієнтів є вихідцями з України, Центральної Азії, Кавказу, Близького Сходу і Туреччини.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p>
+          Наша друга ключова компетенція - послуги з рекрутингу. Ми вміємо мастерськи знайти і підібрати для вас фахівців робочих спеціальностей з різних галузей, а також персонал для некваліфікованої роботи.
+        </p>
+
+        <br/>
+        <br/>
+
+        <p>
+          Ми співпрацюємо з роботодацями з країн Балтії, Чехії, Німеччини, Великобританії і країнах Скандинавії в логістиці, будівництві, автомобільній, легкій і харчовій промисловості. За 5 років ми вже знайшли понад 6000 працівників для 30 компаній в країнах ЄС. В інтересах замовників-роботодавців ми шукаємо, проводимо співбесіди і відбираємо необхідних фахівців через нашу мережу філій і партнерів в країнах Східної Європи, Середньої Азії і Кавказу.
+        </p>
+      `,
+      slider: []
+    },
+    {
+      specialClass: '',
+      title: {
+        isStarred: 'true',
+        value: 'Місія'
+      },
+      typography: `
+        <blockquote>
+          “ Зробити для наших клієнтів комфортний і безпечний процес імміграції та працевлаштування за кордоном ”
+        </blockquote>
+      `,
+      slider: []
+    },
+    {
+      specialClass: '',
+      title: {
+        isStarred: 'true',
+        value: 'Наші цінності'
+      },
+      typography: '',
+      slider: [
+        {
+          title: 'Ми будуємо ефективну екосистему для мігрантів',
+          description: 'Ми будуємо ефективну екосистему взаємодії між українськими мігрантами та роботодавцем ЄС для безпечної, ефективної та швидкої співпраці та формування іміджу українців як порядних, працьовитих та чесних людей.'
+        },
+        {
+          title: 'Ми будуємо ефективну екосистему для мігрантів',
+          description: 'Ми будуємо ефективну екосистему взаємодії між українськими мігрантами та роботодавцем ЄС для безпечної, ефективної та швидкої співпраці та формування іміджу українців як порядних, працьовитих та чесних людей.'
+        },
+        {
+          title: 'Ми будуємо ефективну екосистему для мігрантів',
+          description: 'Ми будуємо ефективну екосистему взаємодії між українськими мігрантами та роботодавцем ЄС для безпечної, ефективної та швидкої співпраці та формування іміджу українців як порядних, працьовитих та чесних людей.'
+        }
+      ]
+    }
+  ];
+
+each info in aboutInfoList
+  section.about-info(class=`${info.specialClass !== '' ? info.specialClass : ''}`)
+    ._container._container-inner
+      .about-info__wrapper
+        if info.title
+          .about-info__title__container(
+            class=`${info.title.isStarred === 'true' ? 'starred' : ''}`
+          )
+            if info.title.isStarred === 'true'
+              .about-info__title__label(aria-hidden='true')
+                img(src=require('@/assets/img/star.svg'), alt='star')
+
+            h2.about-info__title= info.title.value
+
+        if info.typography !== ''
+          .about-info__typography.typography!= info.typography
+
+        if info.slider.length !== 0
+          .about-info__slider__container
+            .about-info-slider__bg
+              img(src=require('@/assets/img/about/info-1.jpg'), alt='info')
+
+            .about-info-slider-controls
+              button.about-info-slider-prev
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25.8333 31.6666L14.1666 19.9999L25.8333 8.33325" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              button.about-info-slider-next
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.1665 31.6666L25.8332 19.9999L14.1665 8.33325" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              .about-info-slider-pagination pagination
+
+            .about-info-slider.swiper
+              .swiper-wrapper
+                each slide, index in info.slider
+                  .swiper-slide
+                    .about-info-slider__item
+                      if slide.title !== ''
+                        h3.about-info-slider__title= slide.title
+
+                      if slide.description !== ''
+                        p.about-info-slider__description= slide.description

@@ -1,0 +1,11 @@
+section.banner-inner
+  .banner-inner__bg
+    img(
+      src=require(`${innerBanner.image}`),
+      alt=`${innerBanner.title}`,
+      loading='lazy'
+    )
+
+  ._container.banner-inner__container
+    .banner-inner__wrapper
+      h1.banner-inner__title= innerBanner.title

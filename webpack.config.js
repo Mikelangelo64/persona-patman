@@ -4,17 +4,38 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PugPlugin = require('pug-plugin');
 
+const pageNames = ['about'];
+
+const pages = pageNames.map((name) => {
+  return {
+    [name]: {
+      import: `./src/pages/${name}.pug`
+    }
+  };
+});
+
 module.exports = {
   // mode: process.env.NODE_ENV,
   mode: 'development',
-  entry: {
-    index: {
-      import: './src/index.pug',
+  // entry: {
+  //   index: {
+  //     import: './src/index.pug'
+  //   },
+  //   about: {
+  //     import: './src/about.pug'
+  //   }
+  // },
+  entry: Object.assign(
+    {
+      index: {
+        import: './src/index.pug'
+      }
     },
-  },
+    ...pages
+  ),
 
   devServer: {
-    watchFiles: path.join(__dirname, 'src'),
+    watchFiles: path.join(__dirname, 'src')
   },
 
   plugins: [
@@ -24,12 +45,12 @@ module.exports = {
     new PugPlugin({
       // pretty: true,
       js: {
-        filename: '[name].bundle.js',
+        filename: '[name].bundle.js'
       },
       css: {
-        filename: '[name].css',
-      },
-    }),
+        filename: '[name].css'
+      }
+    })
     // new MiniCssExtractPlugin({
     //   filename: 'styles.css',
     // }),
@@ -44,9 +65,9 @@ module.exports = {
   ],
 
   output: {
-    // filename: '[name].bundle.js',
+    //filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public'),
-    clean: true,
+    clean: true
   },
 
   optimization: {
@@ -58,17 +79,17 @@ module.exports = {
           filename: 'vendor.js',
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all',
-        },
-      },
+          chunks: 'all'
+        }
+      }
     },
 
-    minimizer: ['...', new CssMinimizerPlugin()],
+    minimizer: ['...', new CssMinimizerPlugin()]
   },
 
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js']
   },
 
   module: {
@@ -76,11 +97,11 @@ module.exports = {
       {
         test: /\.ts?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.pug$/,
-        loader: PugPlugin.loader, // Pug loader
+        loader: PugPlugin.loader // Pug loader
       },
       // {
       //   test: /\.js$/,
@@ -94,17 +115,18 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              esModule: false,
+              esModule: false
+              //import: false
               // exportType: 'css-style-sheet',
-            },
+            }
           },
           {
             loader: 'sass-loader',
             options: {
               // webpackImporter: true,
-            },
-          },
-        ],
+            }
+          }
+        ]
       },
       // {
       //   test: /\.css$/i,
@@ -133,25 +155,25 @@ module.exports = {
               currentPath.splice(0, 1);
             }
             return `./assets/${currentPath.join('/')}/[name][ext]`;
-          },
+          }
           // filename: './assets/img/[name][ext]',
-        },
+        }
       },
       {
         test: /\.(svg|woff|woff2|eot|ttf|otf)$/,
         exclude: [/img/],
         type: 'asset/resource',
         generator: {
-          filename: './assets/fonts/[name][ext]',
-        },
+          filename: './assets/fonts/[name][ext]'
+        }
       },
       {
         test: /\.mp4$/,
         type: 'asset/resource',
         generator: {
-          filename: './assets/video/[name][ext]',
-        },
-      },
-    ],
-  },
+          filename: './assets/video/[name][ext]'
+        }
+      }
+    ]
+  }
 };

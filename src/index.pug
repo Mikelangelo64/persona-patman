@@ -1,6 +1,11 @@
 doctype html
 html(lang='en')
-  include @/layout/head.pug
+  head
+    include @/layout/head.pug
+
+    title Persona Postman
+
+    link(rel='stylesheet', href=require('@/styles/styles.scss'))
 
   body
     include @/layout/header.pug

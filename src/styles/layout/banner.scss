@@ -73,6 +73,8 @@
       }
 
       .swiper-pagination-bullet {
+        @include reset-button;
+
         width: 100%;
         max-width: px-to-rem(28);
         display: flex;
@@ -88,7 +90,7 @@
           path {
             @include transition(fill 0.4s);
 
-            @at-root .swiper-pagination-bullet.swiper-pagination-bullet-active svg path {
+            @at-root .banner-slider-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active svg path {
               fill: var(--color-blue-100);
             }
           }
@@ -156,7 +158,7 @@
       @include absolute-fullsize;
       z-index: 1;
 
-      background-image: linear-gradient(120deg, rgba(var(--color-blue-050--rgb), 0.7) 0, rgba(var(--color-black-100--rgb), 0) 64%);
+      background-image: linear-gradient(120deg, rgba(var(--color-blue-050--rgb), 0.7) 0, rgba(var(--color-blue-050--rgb), 0) 64%);
       
       @include viewport-desktop {
         @media (min-width: 1441px) {

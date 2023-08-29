@@ -67,6 +67,11 @@ ol {
   padding-left: var(--wrap);
   padding-right: var(--wrap);
   // margin: 0;
+  
+  &._container-inner {
+    padding-left: var(--wrap-1);
+    padding-right: var(--wrap-1);
+  }
 }
 
 .logo-link {
@@ -173,8 +178,13 @@ section,
 
 @import './layout/menu';
 @import './layout/banner';
+@import './layout/typography';
 @import './layout/card';
 @import './layout/possibilities';
 @import './layout/news';
 @import './layout/statistic';
 @import './layout/footer-additional';
+
+@import './layout/breadcrumbs';
+@import './layout/banner-inner';
+@import './layout/about-info';
