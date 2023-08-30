@@ -1,0 +1,12 @@
+article.section.separate
+  ._container
+    .separate__wrapper
+      .separate-media
+        .separate-media__container
+          img(
+            src=require(`${separateSection.image}`),
+            alt=`${separateSection.alt}`
+          )
+
+      .separate__text
+        .separate__description.typography!= separateSection.description

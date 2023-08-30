@@ -1,0 +1,93 @@
+-
+  const servicesCards = [
+    {
+      image: '@/assets/img/services/services-1.svg',
+      title: 'Допомога з житлом',
+      typography: `
+        <ul>
+          <li>
+            Пошук оптимального житла
+          </li>
+          <li>
+            Допомога з орендою чикупівлею житла
+          </li>
+        </ul>
+      `,
+      link: {}
+    },
+    {
+      image: '@/assets/img/services/services-2.svg',
+      title: '',
+      typography: `
+        <ul>
+          <li>
+            Відкриття банківського рахунку/сейфу 
+          </li>
+          <li>
+            Оформлення страхового полісу
+          </li>
+          <li>
+            Послуги з придбання/продажу активів
+          </li>
+        </ul>
+      `,
+      link: {}
+    },
+    {
+      image: '@/assets/img/services/services-3.svg',
+      title: '',
+      typography: `
+        <ul>
+          <li>
+            Нотаріальні послуги
+          </li>
+          <li>
+            Захист прав у конфлікті з роботодавцем
+          </li>
+          <li>
+            Захист прав перед органами влади
+          </li>
+        </ul>
+      `,
+      link: {}
+    },
+  ];
+
+section.services
+  ._container
+    .services__wrapper
+      h2.services__title Додаткові послуги для адаптації іноземців
+
+      .services__main
+        .services-slider.swiper
+          .swiper-wrapper
+            - for (let i=0; i<2; i++)
+              each item, index in servicesCards
+                .swiper-slide
+                  .card.services-slider__item
+                    .card__container
+                      .card__inner
+                        .card__header
+                          .card__label
+                            img(
+                              src=require(`${item.image}`),
+                              alt=`services-${index + 1 + (i * 3)}`
+                            )
+
+                          h3.card__title!= item.title
+
+                        .card__typography!= item.typography
+
+                        if item.link.name
+                          a.card-link.link-more(href=`${item.link.href}`)
+                            span.link-more__text= item.link.name
+
+                            span.link-more__label
+                              img(
+                                src=require('@/assets/img/arrow-more.svg'),
+                                alt='possibilities-details',
+                                draggable='false'
+                              )
+
+        .services-slider-controls
+          .services-slider-pagination pagination

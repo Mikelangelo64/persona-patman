@@ -82,11 +82,58 @@ const sliderInfoInit = (sliders: Array<IInitializedSlider>) => {
   });
 };
 
+const sliderServicesInit = (sliders: Array<IInitializedSlider>) => {
+  const containerArray = document.querySelectorAll(
+    '.services'
+  ) as NodeListOf<HTMLElement>;
+
+  if (containerArray.length === 0) {
+    return;
+  }
+
+  containerArray.forEach((item, sliderIndex) => {
+    const slider = makeSlider({
+      container: item,
+      className: 'services',
+      renderBullets: (index, className) => {
+        return `
+          <button class="${className}"></button>
+        `;
+      },
+      config: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+
+        breakpoints: {
+          660: {
+            slidesPerView: 2,
+            slidesPerGroup: 2
+          },
+
+          1199: {
+            slidesPerView: 3,
+            slidesPerGroup: 3
+          }
+        }
+        // autoplay: {
+        //   delay: 6000,
+        //   disableOnInteraction: false
+        // }
+      }
+    });
+
+    if (slider) {
+      sliders.push({ name: `services-${sliderIndex}`, slider });
+    }
+  });
+};
+
 const slidersInit = () => {
   const sliders: Array<IInitializedSlider> = [];
 
   sliderBannerInit(sliders);
   sliderInfoInit(sliders);
+  sliderServicesInit(sliders);
 
   return sliders;
 };

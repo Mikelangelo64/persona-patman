@@ -101,9 +101,11 @@
   --color-reverse: var(--color-white);
   @include button;
 
+  border: 1px solid transparent;
+  
   &::after {
     content: '';
     @include absolute-fullsize;
-    border: 1px solid var(--color-blue-100);
+    border: 1px solid var(--color-theme);
   }
 }
