@@ -1,4 +1,5 @@
 import counterInit from './counter/init';
+import fadeContentInit from './fadeContent/init';
 import languageToggle from './languageToggle/init';
 import initPopups from './popup/init';
 import scrollBarInit from './scrollbar';
@@ -9,6 +10,8 @@ export const init = () => {
   slidersInit();
   languageToggle();
   counterInit();
+
+  fadeContentInit();
   // const header = document.querySelector('.header') as HTMLElement;
   // // const headerHeight = header ? header.offsetHeight : 0;
   // let isScrolled = false;
@@ -36,6 +39,8 @@ export const init = () => {
   const popups = initPopups();
 
   const formArr = document.querySelectorAll('form');
+  const hasError = false;
+
   if (formArr.length !== 0) {
     formArr.forEach((form) => {
       form.addEventListener('submit', (evt) => {
@@ -47,7 +52,7 @@ export const init = () => {
         );
 
         popups.forEach(({ timeline, isThanks, isError }) => {
-          if (isThanks) {
+          if (isThanks && !hasError) {
             timeline?.play();
 
             if (inputs.length !== 0) {
@@ -56,7 +61,7 @@ export const init = () => {
                 input.value = '';
               });
             }
-          } else if (isError) {
+          } else if (isError && hasError) {
             timeline?.play();
           } else {
             timeline?.reverse();

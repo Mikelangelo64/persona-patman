@@ -17,10 +17,14 @@
   transition: background 0.5s ease;
   color: var(--color-black);
 
-  @include viewport-tablet-min {
-    --wrapper-width: #{px-to-rem(708)};
+  @include viewport-desktop {
+    --wrapper-width: #{px-to-rem(866)};
   }
-  @include viewport-tablet-min {
+
+  @include viewport-tablet {
+    --wrapper-width: #{px-to-rem(706)};
+  }
+  @include viewport-phone {
     --wrapper-width: 88.888%;
   }
 
@@ -96,7 +100,7 @@
 
     @include viewport-phone {
       margin: px-to-rem(30) auto;
-      padding: px-to-rem(40) 5.555% px-to-rem(30);
+      padding: px-to-rem(40) var(--wrap) px-to-rem(30);
     }
   }
   
@@ -173,6 +177,7 @@
   
   //.popup__content 
   &__content {
+    position: relative;
     width: 100%;
     text-align: center;
 

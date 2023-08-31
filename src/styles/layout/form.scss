@@ -3,19 +3,42 @@
 @import '../mixins/reset';
 @import '../mixins/font-size';
 
+select {
+  display: block;
+  width: 100%;
+  border: unset;
+  border-bottom: 1px solid rgba(var(--color-black--rgb), 0.37);
+  padding: px-to-rem(12) 0;
+  outline: none;
+
+  font-family: $font-family;
+  font-size: px-to-rem(16);
+  line-height: 100%;
+  font-weight: 400;
+  color: var(--color-black);
+
+  &:focus-visible {
+    border-color: var(--color-black);
+  }
+
+  @at-root form.invalid select {
+    border-color: var(--color-red);
+  }
+}
+
 input,
 textarea {
   @include reset-input;
   appearance: none;
   outline: none;
   width: 100%;
-  border: 1px solid rgba(var(--color-black--rgb), 0.16);
-  padding: px-to-rem(4);
+  border-bottom: 1px solid rgba(var(--color-black--rgb), 0.37);
+  padding: px-to-rem(12) 0;
 
   @include transition(border 0.4s);
 
   font-family: $font-family;
-  font-size: px-to-rem(18);
+  font-size: px-to-rem(16);
   line-height: 100%;
   font-weight: 400;
   color: var(--color-black);
@@ -28,7 +51,7 @@ textarea {
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
-    color: rgba(var(--color-black--rgb), 0.6);
+    color: rgba(var(--color-black--rgb), 0.5);
   }
 
   &.hidden {
@@ -43,24 +66,21 @@ textarea {
   }
 
   @at-root form.invalid input {
-    border-color: rgba(var(--color-black--rgb), 0.2);
+    border-color: var(--color-red);
   }
 
   @at-root form.invalid textarea {
-    border-color: rgba(var(--color-black--rgb), 0.2);
+    border-color: var(--color-red);
   }
 }
 
 textarea {
   @include hide-scroll-bars;
   resize: none;
-  height: 120px;
+  height: 192px;
 
-  border: 1px solid var(--color-black);
-  padding: px-to-rem(16) px-to-rem(12);
-
-  @include viewport-phone {
-    background-color: rgba(var(--color-white--rgb), 0.6);
+  @at-root form.form.action__form textarea {
+    height: px-to-rem(84);
   }
 }
 
@@ -70,55 +90,84 @@ form {
   text-align: left;
   color: var(--color-black);
 
-  // label {
-  //   display: block;
+  label {
+    display: block;
 
-  //   // .wpcf7-not-valid-tip {
-  //   //   display: none;
-  //   //   font-size: px-to-rem(12);
-  //   //   color: var(--color-red);
+    .wpcf7-not-valid-tip {
+      display: none;
+      font-size: px-to-rem(12);
+      color: var(--color-red);
 
-  //   //   @at-root form.invalid label .wpcf7-not-valid-tip {
-  //   //     display: block;
-  //   //   }
-  //   // }
+      @at-root form.invalid label .wpcf7-not-valid-tip {
+        display: block;
+        margin-top: px-to-rem(6);
+      }
+    }
 
-  //   // strong {
-  //   //   display: block;
-  //   //   font-weight: 400;
-  //   //   line-height: 100%;
-  //   //   color: var(--color-black-100);
+    strong {
+      display: block;
+      margin-bottom: px-to-rem(6);
 
-  //   //   @include viewport-tablet-min {
-  //   //     font-size: px-to-rem(16);
-  //   //     margin-bottom: px-to-rem(14);
-  //   //   }
-  //   //   @include viewport-phone {
-  //   //     font-size: px-to-rem(14);
-  //   //     margin-bottom: px-to-rem(6);
-  //   //   }
+      font-weight: 400;
+      line-height: 100%;
+      font-size: px-to-rem(16);
+      color: var(--color-black);
 
-  //   //   @at-root form.invalid strong {
-  //   //     color: var(--color-red);
-  //   //   }
-  //   // }
-  // }
+      @at-root form.invalid strong {
+        color: var(--color-red);
+      }
+    }
+  }
+
+  p {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
 
   > div {
     width: 100%;
+    display: grid;
 
-    + div {
-      margin-top: px-to-rem(24);
+    gap: px-to-rem(34) px-to-rem(42);
+    
+    @include viewport-tablet-min {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include viewport-phone {
+      grid-template-columns: 1fr;
+    }
+
+    > * {
+      &:only-child {
+        @include viewport-tablet-min {
+          grid-column: -1 / 1;
+        }
+      }
+    }
+
+    + * {
+      margin-top: px-to-rem(34);
     }
   }
 
   button[type=submit],
   input[type=submit] {
-    @include button-dark;
-    // max-width: unset;
-    // width: 100%;
-    // padding: px-to-rem(18);
+    @include button-light;
 
-    // font-size: px-to-rem(20);
+    @include transition((color 0.4s, background 0.4s, clip-path 0.6s));
+    background-color: var(--color-reverse);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    @include hover-focus-visible {
+      @include non-mobile-device {
+        color: var(--color-theme);
+      }
+    }
   }
 }

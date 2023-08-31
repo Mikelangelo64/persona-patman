@@ -26,10 +26,16 @@
       isFullscreenPhone: 'false'
     },
     { 
+      name: 'error', 
+      type: 'feedback', 
+      video: '',
+      isFullscreenPhone: 'false'
+    },
+    { 
       name: 'form', 
       type: 'form', 
       video: '',
-      isFullscreenPhone: 'false'
+      isFullscreenPhone: 'true'
     }
   ];
 
@@ -46,7 +52,17 @@ each item in popupList
     .popup__scroll
       .popup__wrapper
         button.popup__close(class=`${item.type === 'menu' ? 'hidden' : ''}`)
-          img(src=require('@/assets/img/popup-close.svg'), alt='close')
+          img(
+            class=`${item.isFullscreenPhone === 'true' ? 'desktop' : ''}`,
+            src=require('@/assets/img/popup-close.svg'),
+            alt='close'
+          )
+
+          if item.isFullscreenPhone === 'true'
+            img.mobile(
+              src=require('@/assets/img/popup-close-black.svg'),
+              alt='close'
+            )
 
         .popup__content
           case item.type 
@@ -64,7 +80,11 @@ each item in popupList
               include @/templates/popup/menu.pug
 
             when 'feedback'
-              include @/templates/popup/content-popup.pug
+              if item.name === 'thanks'
+                include @/templates/popup/thanks-popup.pug
+
+              if item.name === 'error'
+                include @/templates/popup/error-popup.pug
 
             when 'form'
               include @/templates/popup/form-popup.pug

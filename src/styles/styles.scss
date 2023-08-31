@@ -169,6 +169,42 @@ section,
   }
 }
 
+.action {
+  > * + * {
+    margin-top: px-to-rem(50);
+  }
+
+  //.action__title 
+  &__title {
+    @include text-heading-2;
+    text-align: center;
+  }
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  //.feedback__label 
+  &__label {
+    display: flex;
+    max-width: px-to-rem(96);
+    margin-bottom: px-to-rem(36);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  //.feedback__title 
+  &__title {
+    @include text-heading-3;
+    text-align: center;
+  }
+}
+
 //templates
 @import './layout/form';
 @import './layout/header';
@@ -192,3 +228,6 @@ section,
 @import './layout/immigration-services';
 @import './layout/steps';
 @import './layout/services';
+@import './layout/fadeContent';
+@import './layout/recruting-services';
+@import './layout/form-partnership';
