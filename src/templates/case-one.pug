@@ -1,0 +1,57 @@
+-
+  const caseOneCList = [
+    {
+      image: '@/assets/img/cases/case-article-1.svg',
+      title: 'Челендж',
+      description: `
+        <p>
+          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+        </p>
+      `
+    },
+    {
+      image: '@/assets/img/cases/case-article-2.svg',
+      title: 'Рішення',
+      description: `
+        <p>
+          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+        </p>
+      `
+    },
+    {
+      image: '@/assets/img/cases/case-article-3.svg',
+      title: 'Результат',
+      description: `
+        <p>
+          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+        </p>
+      `
+    }
+  ];
+
+section.case-one
+  ._container.case-one__container
+    .case-one__wrapper
+      .case-one__header
+        h1.case-one__title Довга назва матеріалу кейсу. Приклад Назви кейсу номер 1
+
+        .date.case-one__date
+          .date__label
+            img(src=require('@/assets/img/date.svg'), alt='date')
+
+          time.date__value(datatime='2023-07-22') 22.07.2023
+
+      .case-one-list
+        each item in caseOneCList
+          .case-one-list__item
+            .case-one-list-header
+              .case-one-list-header__container
+                .case-one-list__label
+                  img(src=require(`${item.image}`), alt=`${item.title}`)
+
+                p.case-one-list__title= item.title
+
+                .case-one-list__star(aria-hidden='true')
+                  img(src=require('@/assets/img/star.svg'), alt='star')
+
+            .case-one-list__description.typography!= item.description

@@ -205,6 +205,36 @@ section,
   }
 }
 
+.date {
+  display: flex;
+  align-items: center;
+  margin-top: px-to-rem(18);
+
+  line-height: 170%;
+  font-weight: 400;
+  font-size: px-to-rem(14);
+
+  > * + * {
+    margin-left: px-to-rem(8);
+  }
+
+  //.date__label 
+  &__label {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: px-to-rem(14);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  //.case-catalog-date__value 
+  // &__value {
+  // }
+}
+
 //templates
 @import './layout/form';
 @import './layout/header';
@@ -231,3 +261,8 @@ section,
 @import './layout/fadeContent';
 @import './layout/recruting-services';
 @import './layout/form-partnership';
+@import './layout/team';
+@import './layout/team-one';
+@import './layout/contacts';
+@import './layout/case-catalog';
+@import './layout/case-one';

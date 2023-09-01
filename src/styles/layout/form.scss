@@ -16,6 +16,7 @@ select {
   line-height: 100%;
   font-weight: 400;
   color: var(--color-black);
+  background-color: var(--color-white);
 
   &:focus-visible {
     border-color: var(--color-black);

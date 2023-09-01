@@ -1,0 +1,23 @@
+-
+  const breadcrumbsName = 'Кейс 1';
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Persona Postman - Case Article
+
+    link(rel='stylesheet', href=require('@/styles/pages/case-article.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    include @/templates/case-one.pug
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 
