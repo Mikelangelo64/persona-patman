@@ -1,0 +1,88 @@
+-
+  const innerBanner = {
+    image: '@/assets/img/news/inner-banner.jpg',
+    title: 'Новини',
+    specialClass: 'news-page__banner'
+  };
+
+  const breadcrumbsName = 'Новини';
+
+  const newsList = [
+    {
+      image: '@/assets/img/news/news-1.jpg',
+      title: 'Приклад заголовку новин Назва новини номер 1',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...',
+      href: './news-article.html'
+    },
+    {
+      image: '@/assets/img/news/news-2.jpg',
+      title: 'Приклад заголовку новин Назва новини номер 2',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...',
+      href: './news-article.html'
+    },
+    {
+      image: '@/assets/img/news/news-3.jpg',
+      title: 'Приклад заголовку новин Назва новини номер 3',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...',
+      href: './news-article.html'
+    },
+  ];
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Persona Patman - Новини
+
+    link(rel='stylesheet', href=require('@/styles/pages/news.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    include @/templates/banner-inner.pug
+
+    section.news-section
+      ._container
+        .news-section__wrapper
+          ul.news-list
+            - for (let i=0; i<4; i++)
+              each item in newsList
+                li.news-list__li
+                  a.news-list__item(href=`${item.href}`)
+                    span.news-list-img
+                      span.news-list-img__decoration(aria-hidden='true')
+                        img(
+                          src=require('@/assets/img/star.svg'),
+                          alt='decoration',
+                          draggable='false',
+                          loading='lazy'
+                        )
+
+                      span.news-list-img__content
+                        span.news-list-img__container
+                          img(
+                            src=require(`${item.image}`),
+                            alt=`${item.title}`
+                          )
+
+                    h3.news-list__title!= item.title
+
+                    span.news-list__description!= item.description
+
+                    span.news-list-more.link-more
+                      span.link-more__text Детальніше
+
+                      span.link-more__label
+                        img(
+                          src=require('@/assets/img/arrow-more.svg'),
+                          alt='possibilities-details',
+                          draggable='false'
+                        )
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 

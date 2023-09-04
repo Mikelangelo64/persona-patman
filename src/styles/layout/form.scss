@@ -83,6 +83,9 @@ textarea {
   @at-root form.form.action__form textarea {
     height: px-to-rem(84);
   }
+  @at-root form.form.contacts__form textarea {
+    height: px-to-rem(84);
+  }
 }
 
 form {
@@ -138,6 +141,16 @@ form {
 
     @include viewport-phone {
       grid-template-columns: 1fr;
+    }
+
+    @at-root form.form.contacts__form {
+      > div {
+        gap: px-to-rem(30) px-to-rem(42);
+      }
+
+      + * {
+        margin-top: px-to-rem(30);
+      }
     }
 
     > * {

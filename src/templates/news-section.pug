@@ -4,26 +4,34 @@
       image: '@/assets/img/news/news-1.jpg',
       title: 'Приклад заголовку новин Назва новини номер 1',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...',
-      href: '#'
+      href: './news-article.html'
     },
     {
       image: '@/assets/img/news/news-2.jpg',
       title: 'Приклад заголовку новин Назва новини номер 2',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...',
-      href: '#'
+      href: './news-article.html'
     },
     {
       image: '@/assets/img/news/news-3.jpg',
       title: 'Приклад заголовку новин Назва новини номер 3',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been...',
-      href: '#'
+      href: './news-article.html'
     },
   ];
 
 section.news-section
   ._container
     .news-section__wrapper
-      h2.news-section__title Новини та події
+      .news-section__header
+        h2.news-section__title Новини та події
+
+        a.button-dark.news-section__button(href='./news.html')
+          span Усі новини
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 13L18.17 13L15.59 15.59L17 17L22 12L17 7L15.59 8.41L18.17 11L2 11L2 13Z" fill="white">
+            </path>
+          </svg>
 
       ul.news-list
         each item in newsSectionList
@@ -39,7 +47,11 @@ section.news-section
 
                 span.news-list-img__content
                   span.news-list-img__container
-                    img(src=require(`${item.image}`), alt=`${item.title}`)
+                    img(
+                      src=require(`${item.image}`),
+                      alt=`${item.title}`,
+                      loading='lazy'
+                    )
 
               h3.news-list__title!= item.title
 

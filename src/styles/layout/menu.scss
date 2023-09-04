@@ -24,7 +24,7 @@
     
     @at-root .menu.header__menu & {
       @include transition(color 0.4s);
-      font-weight: 400;
+      //font-weight: 400;
       font-size: px-to-rem(14);
 
       @include hover-focus-visible {
@@ -169,6 +169,8 @@
 
     &::after {
       bottom: 0;
+      transform-origin: 100% 100%;
+      transform: scale(0.5, 1);
 
       @at-root .menu-burger._opened::after {
         transform: translate(0, -8px) rotate(90deg);

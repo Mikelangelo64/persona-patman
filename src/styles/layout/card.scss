@@ -117,6 +117,7 @@
   //.card__title 
   &__title {
     @include text-heading-4;
+    word-break: break-word;
 
     @at-root .possibilities__list.cards-list & {
       @include text-heading-3;

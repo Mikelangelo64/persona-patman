@@ -76,6 +76,18 @@
       @include viewport-phone {
         max-width: px-to-rem(100);
       }
+
+      @at-root .banner-inner.contacts__banner .banner-inner__title::before {
+        @include viewport-tablet-min {
+          max-width: px-to-rem(160);
+        }
+      }
+
+      @at-root .banner-inner.pro-bono__banner .banner-inner__title::before {
+        @include viewport-tablet-min {
+          max-width: px-to-rem(160);
+        }
+      }
     }
   }
 }

@@ -1,0 +1,74 @@
+-
+  const innerBanner = {
+    image: '@/assets/img/pro-bono/inner-banner.jpg',
+    title: 'Допомога Pro Bono',
+    specialClass: 'pro-bono__banner'
+  };
+
+  const breadcrumbsName = 'Допомога Pro Bono';
+
+  const typography = [
+    {
+      type: 'text',
+      data: `
+        <p>
+          З одного боку, для людини процес міграції може бути незапланованим, а також болючим. Ми часто отримуємо запити від мігрантів допомогти відновини паспортні документи чи навіть знайти роботу.
+        </p>
+        <br/>
+        <p>
+          З іншого боку, до нас звертаються компанії проконсультувати щодо легального працевлаштування їх працівників-іноземців чи допомогти адаптуватись їх працівникам в новій країні.
+        </p>
+        <br/>
+        <p>
+          Тут ми розповідаємо про нові pro bono проекти, які ми реалуємо безкоштовно або за кошти донорів чи меценатів, щоб допомогти мігрантам вирішити їх нагальні проблеми в приймаючій країні.
+        </p>
+      `
+    },
+    {
+      type: 'image',
+      data: '@/assets/img/pro-bono/typography-1.jpg'
+    },
+    {
+      type: 'text',
+      data: `
+        <p>
+          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+        </p>
+      `
+    },
+    {
+      type: 'image',
+      data: '@/assets/img/pro-bono/typography-2.jpg'
+    },
+    {
+      type: 'text',
+      data: `
+        <p>
+          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+        </p>
+      `
+    }
+  ];
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Persona Patman - Допомога Pro Bono
+
+    link(rel='stylesheet', href=require('@/styles/pages/pro-bono.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    include @/templates/banner-inner.pug
+
+    include @/layout/typography.pug
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 

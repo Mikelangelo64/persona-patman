@@ -12,7 +12,11 @@ const pageNames = [
   'team',
   'team-article',
   'cases',
-  'case-article'
+  'case-article',
+  'pro-bono',
+  'contacts',
+  'news',
+  'news-article'
 ];
 
 const pages = pageNames.map((name) => {

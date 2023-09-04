@@ -27,7 +27,7 @@
 
 @mixin text-heading-inner-1 {
   @include text-heading-styles;
-  line-height: 112%;
+  line-height: 120%;
   font-weight: 600;
   word-break: break-word;
 
@@ -40,7 +40,7 @@
   }
 
   @include viewport-phone {
-    font-size: px-to-rem(44);
+    font-size: px-to-rem(40);
   }
 }
 
