@@ -45,8 +45,11 @@
   }
   
   //.banner-inner__wrapper 
-  // &__wrapper {
-  // }
+  &__wrapper {
+    > * + * {
+      margin-top: px-to-rem(24);
+    }
+  }
   
   //.banner-inner__title 
   &__title {
@@ -88,6 +91,22 @@
           max-width: px-to-rem(160);
         }
       }
+    }
+  }
+
+  //.banner-inner__subtitle 
+  &__subtitle {
+    line-height: 110%;
+    
+    @include viewport-tablet-min {
+      font-size: px-to-rem(20);
+    }
+    @include viewport-phone {
+      font-size: px-to-rem(18);
+    }
+
+    span {
+      font-weight: 500;
     }
   }
 }
