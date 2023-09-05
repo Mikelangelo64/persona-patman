@@ -1,5 +1,5 @@
 -
-  const recrutingServices = [
+  const recruitingServices = [
     {
       isActive: 'true',
       data: '1',
@@ -57,44 +57,44 @@
     }
   ];
 
-section.recruting-services
+section.recruiting-services
   ._container
-    .recruting-services__wrapper
-      h2.recruting-services__title Наші рекрутингові послуги
+    .recruiting-services__wrapper
+      h2.recruiting-services__title Наші рекрутингові послуги
 
-      .recruting-services__main.fade-section
-        ul.fade-section__list.recruting-services__navigation
-          each item in recrutingServices
+      .recruiting-services__main.fade-section
+        ul.fade-section__list.recruiting-services__navigation
+          each item in recruitingServices
             li
-              button.fade-section__button.recruting-services-button(
+              button.fade-section__button.recruiting-services-button(
                 class=`${item.isActive === 'true' ? 'active' : ''}`,
                 data-item=`${item.data}`,
                 aria-label=`${item.type.title}`
               )
-                span.recruting-services-button__container
-                  span.recruting-services-button__inner
-                    span.recruting-services-button__label(aria-hidden='true')!= item.type.label
+                span.recruiting-services-button__container
+                  span.recruiting-services-button__inner
+                    span.recruiting-services-button__label(aria-hidden='true')!= item.type.label
 
-                    span.recruting-services-button__title= item.type.title
+                    span.recruiting-services-button__title= item.type.title
 
-                span.recruting-services-button__arrow
+                span.recruiting-services-button__arrow
                   img(
-                    src=require('@/assets/img/recruting/fade-arrow.svg'),
+                    src=require('@/assets/img/recruiting/fade-arrow.svg'),
                     alt='arrow',
                     aria-hidden='true'
                   )
 
-        .recruting-services__content
-          .recruting-services__content__inner
+        .recruiting-services__content
+          .recruiting-services__content__inner
             .fade-section-content
-              each item in recrutingServices
+              each item in recruitingServices
                 .fade-section-content__item(
                   class=`${item.isActive !== 'true' ? 'unactive' : ''}`,
                   data-item=`${item.data}`
                 )
-                  ul.recruting-services-list
+                  ul.recruiting-services-list
                     each service in item.list 
-                      li.recruting-services-list__item
-                        h3.recruting-services-list__title= service.title
+                      li.recruiting-services-list__item
+                        h3.recruiting-services-list__title= service.title
 
-                        p.recruting-services-list__description= service.description
+                        p.recruiting-services-list__description= service.description

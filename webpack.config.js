@@ -7,7 +7,7 @@ const PugPlugin = require('pug-plugin');
 const pageNames = [
   'about',
   'immigration',
-  'recruting',
+  'recruiting',
   'partnership',
   'team',
   'team-article',
