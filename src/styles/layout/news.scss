@@ -230,6 +230,7 @@
   &__media {
     width: 100%;
     display: flex;
+    margin-bottom: px-to-rem(32);
 
     clip-path: polygon(0% 0%, 100% 0, 100% 67%, 95% 100%, 0 100%);
 
@@ -242,6 +243,5 @@
   //.news-article__title 
   &__title {
     @include text-heading-inner-1;
-    margin-top: px-to-rem(32);
   }
 }
