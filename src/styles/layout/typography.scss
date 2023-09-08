@@ -15,6 +15,10 @@
   //.typography-article__wrapper 
   &__wrapper {
     width: 100%;
+
+    > * + * {
+      margin-top: px-to-rem(16);
+    }
   }
 }
 
@@ -26,27 +30,50 @@
   color: var(--color-black);
 
   h1 {
-    @include text-heading-1;
+    
+    @at-root .typography.news-article__typography h1 {
+      @include text-heading-news-1;
+    }
   }
-
+  
   h2 {
     @include text-heading-2;
+
+    @at-root .typography-article.news-article__typography .typography h2 {
+      @include text-heading-news-2;
+    }
   }
 
   h3 {
     @include text-heading-3;
+
+    @at-root .typography-article.news-article__typography .typography h3 {
+      @include text-heading-news-3;
+    }
   }
 
   h4 {
     @include text-heading-4;
+
+    @at-root .typography-article.news-article__typography .typography h4 {
+      @include text-heading-news-4;
+    }
   }
 
   h5 {
     @include text-heading-4;
+
+    @at-root .typography-article.news-article__typography .typography h5 {
+      @include text-heading-news-4;
+    }
   }
 
   h6 {
     @include text-heading-4;
+
+    @at-root .typography-article.news-article__typography .typography h6 {
+      @include text-heading-news-4;
+    }
   }
 
   a {
@@ -163,7 +190,7 @@
     }
     
     @include viewport-phone {
-      margin: px-to-rem(32) 0;
+      margin: px-to-rem(28) 0;
       //   grid-template-columns: repeat(auto-fit, minmax(px-to-rem(150), 1fr));
       //   gap: px-to-rem(16);
 
@@ -171,6 +198,11 @@
       //     grid-template-columns: 1fr;
       //   }
     }
+
+    @at-root .typography-article.pro-bono__typography .typography figure {
+      margin-top: 0;
+    }
+
   }
 
   img {

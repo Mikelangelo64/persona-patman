@@ -1,61 +1,68 @@
 -
+  const contactsDescription = `
+    <p>
+      Просьба убрать тот текст, что есть и написать «З приводу будь-яких запитань заповніть форму, яка розташована нижче або надішліть листа на електронну адресу <a href='mailto:info@rcpersona.com'>info@rcpersona.com</a>
+    </p>
+  `;
+
   const contactsList = [
-    [
-      {
-        isTargetBlank: 'false',
-        image: '@/assets/img/contacts-1.svg',
-        href: 'tel:+37066787227',
-        title: '+370 66 78 7227'
-      },
-      {
-        isTargetBlank: 'false',
-        image: '@/assets/img/contacts-2.svg',
-        href: 'mailto:info@rcpersona.com',
-        title: 'info@rcpersona.com'
-      },
-      {
-        isTargetBlank: 'true',
-        image: '@/assets/img/contacts-3.svg',
-        href: 'https://goo.gl/maps/seLEXai7oZapeHc29',
-        title: 'Riga. str. example n1. buil 2. ap10'
-      },
-    ]
+    //- [
+    //-   {
+    //-     isTargetBlank: 'false',
+    //-     image: '@/assets/img/contacts-1.svg',
+    //-     href: 'tel:+37066787227',
+    //-     title: '+370 66 78 7227'
+    //-   },
+    //-   {
+    //-     isTargetBlank: 'false',
+    //-     image: '@/assets/img/contacts-2.svg',
+    //-     href: 'mailto:info@rcpersona.com',
+    //-     title: 'info@rcpersona.com'
+    //-   },
+    //-   {
+    //-     isTargetBlank: 'true',
+    //-     image: '@/assets/img/contacts-3.svg',
+    //-     href: 'https://goo.gl/maps/seLEXai7oZapeHc29',
+    //-     title: 'Riga. str. example n1. buil 2. ap10'
+    //-   },
+    //- ]
   ];
 
 article.section.contacts
   ._container
     .contacts__wrapper
-      p.contacts__description Працевлаштування іноземців – це ваша конкурентна перевага і можливість швидко найти необхідних працівників. Але для успішного залучення іноземців вам необхідна професійна підтримка рекрутинової компанії.
+      .typography.contacts__description!= contactsDescription
 
       .contacts__main
-        ul.contacts-list
-          - for(let i=0; i<4; i++)
-            each item in contactsList
-              li.contacts-item.contacts-list__item
-                each link, index in item
-                  a.contacts-item__link(
-                    href=`${link.href}`,
-                    target=`${link.isTargetBlank === 'true' ? '_blank' : '_self'}`
-                  )
-                    span.contacts-item__label
-                      img(
-                        src=require(`${link.image}`),
-                        alt=`contact-${index + i + 1}`
-                      )
+        if contactsList.length !== 0
+          ul.contacts-list
+            - for(let i=0; i<4; i++)
+              each item in contactsList
+                li.contacts-item.contacts-list__item
+                  each link, index in item
+                    a.contacts-item__link(
+                      href=`${link.href}`,
+                      target=`${link.isTargetBlank === 'true' ? '_blank' : '_self'}`
+                    )
+                      span.contacts-item__label
+                        img(
+                          src=require(`${link.image}`),
+                          alt=`contact-${index + i + 1}`
+                        )
 
-                    span.contacts-item__text= link.title
+                      span.contacts-item__text= link.title
 
         .contacts-action
           .contacts-action__container
             form#form-contacts.form.contacts__form(action='post') 
-              div
-                label(for='contacts-select') 
-                  strong Тип звернення
-                  select#contacts-select(name='select', form='form-contacts')
-                    option(value='value 1', selected) value 1
-                    option(value='value 2') value 2
-                    option(value='value 3') value 3
-                  span.wpcf7-not-valid-tip Невірний формат
+              //- div
+              //-   label(for='contacts-select') 
+              //-     strong Тип звернення
+              //-     select#contacts-select(name='select', form='form-contacts')
+              //-       option(value='value 1', selected) value 1
+              //-       option(value='value 2') value 2
+              //-       option(value='value 3') value 3
+              //-     span.wpcf7-not-valid-tip Невірний формат
 
               div
                 label(for='contacts-name') 
@@ -87,3 +94,6 @@ article.section.contacts
 
               p
                 button(type='submit') Відправити
+
+                span Натискаючи на кнопку "Відправити" ви погоджуєтесь з
+                  a(href='#', target='_blank', rel='noreferrer') умовами конфіденційності Persona Patman

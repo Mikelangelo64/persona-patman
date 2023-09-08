@@ -20,6 +20,7 @@ const renderModalAnimation = ({
   if (parent) {
     const element = parent;
     element.style.display = `${progress > 0 ? 'flex' : 'none'}`;
+
     element.style.opacity = `${progress > 0 ? 1 : 0}`;
   }
 
@@ -30,9 +31,16 @@ const renderModalAnimation = ({
 
   if (scroll) {
     const element = scroll;
-    element.style.opacity = `${easing}`;
+
+    if (!parent.classList.contains('popup-search')) {
+      element.style.opacity = `${easing}`;
+    }
+
     if (parent.classList.contains('popup-menu')) {
       element.style.transform = `translateX(${(1 - easing) * 100}%)`;
+    } else if (parent.classList.contains('popup-search')) {
+      const { height } = parent.getBoundingClientRect();
+      element.style.transform = `translateY(${(easing - 1) * height}rem)`;
     } else {
       element.style.transform = `translateY(${(1 - easing) * 2}rem)`;
     }
@@ -66,8 +74,11 @@ const makeTimeline = (
   });
   timeline.addCallback('start', () => {
     if (!timeline.isReversed) {
-      document.querySelector('html')?.classList.add('lock');
-      document.querySelector('body')?.classList.add('lock');
+      if (!parent.classList.contains('popup-search')) {
+        document.querySelector('html')?.classList.add('lock');
+        document.querySelector('body')?.classList.add('lock');
+      }
+
       parent.classList.add('_opened');
 
       if (video) {

@@ -54,8 +54,23 @@ const sliderInfoInit = (sliders: Array<IInitializedSlider>) => {
   }
 
   containerArray.forEach((item, sliderIndex) => {
+    const sliderThumb = makeSlider({
+      container: item,
+      className: 'about-info',
+      isThumb: true,
+      config: {
+        effect: 'fade',
+        allowTouchMove: false,
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false
+        }
+      }
+    });
+
     const slider = makeSlider({
       container: item,
+      thumb: sliderThumb,
       className: 'about-info',
       renderBullets: (index, className) => {
         return `
@@ -75,6 +90,13 @@ const sliderInfoInit = (sliders: Array<IInitializedSlider>) => {
         }
       }
     });
+
+    if (sliderThumb) {
+      sliders.push({
+        name: `about-info-${sliderIndex}-thumb`,
+        slider: sliderThumb
+      });
+    }
 
     if (slider) {
       sliders.push({ name: `about-info-${sliderIndex}`, slider });
@@ -106,13 +128,11 @@ const sliderServicesInit = (sliders: Array<IInitializedSlider>) => {
 
         breakpoints: {
           660: {
-            slidesPerView: 2,
-            slidesPerGroup: 2
+            slidesPerView: 2
           },
 
           1199: {
-            slidesPerView: 3,
-            slidesPerGroup: 3
+            slidesPerView: 3
           }
         }
         // autoplay: {

@@ -44,6 +44,25 @@
   }
 }
 
+@mixin text-heading-news-1 {
+  @include text-heading-styles;
+  line-height: 120%;
+  font-weight: 600;
+  word-break: break-word;
+
+  @include viewport-desktop {
+    font-size: px-to-rem(40);
+  }
+
+  @include viewport-tablet {
+    font-size: px-to-rem(38);
+  }
+
+  @include viewport-phone {
+    font-size: px-to-rem(24);
+  }
+}
+
 @mixin text-heading-2 {
   @include text-heading-styles;
   line-height: 134%;
@@ -58,6 +77,23 @@
   
   @include viewport-phone {
     font-size: px-to-rem(30);
+  }
+}
+
+@mixin text-heading-news-2 {
+  @include text-heading-styles;
+  line-height: 134%;
+
+  @include viewport-desktop {
+    font-size: px-to-rem(36);
+  }
+
+  @include viewport-tablet {
+    font-size: px-to-rem(32);
+  }
+  
+  @include viewport-phone {
+    font-size: px-to-rem(22);
   }
 }
 
@@ -77,6 +113,22 @@
   }
 }
 
+@mixin text-heading-news-3 {
+  @include text-heading-styles;
+
+  @include viewport-desktop {
+    font-size: px-to-rem(24);
+  }
+
+  @include viewport-tablet {
+    font-size: px-to-rem(24);
+  }
+  
+  @include viewport-phone {
+    font-size: px-to-rem(20);
+  }
+}
+
 @mixin text-heading-4 {
   @include text-heading-styles;
   line-height: 100%;
@@ -91,6 +143,23 @@
   
   @include viewport-phone {
     font-size: px-to-rem(20);
+  }
+}
+
+@mixin text-heading-news-4 {
+  @include text-heading-styles;
+  line-height: 100%;
+
+  @include viewport-desktop {
+    font-size: px-to-rem(20);
+  }
+
+  @include viewport-tablet {
+    font-size: px-to-rem(20);
+  }
+  
+  @include viewport-phone {
+    font-size: px-to-rem(18);
   }
 }
 

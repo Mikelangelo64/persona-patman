@@ -1,6 +1,7 @@
 import counterInit from './counter/init';
 import fadeContentInit from './fadeContent/init';
 import languageToggle from './languageToggle/init';
+import paginationHelp from './paginationHelp/init';
 import initPopups from './popup/init';
 import scrollBarInit from './scrollbar';
 import slidersInit from './sliders/init';
@@ -10,6 +11,8 @@ export const init = () => {
   slidersInit();
   languageToggle();
   counterInit();
+
+  paginationHelp();
 
   fadeContentInit();
   // const header = document.querySelector('.header') as HTMLElement;

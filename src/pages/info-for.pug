@@ -64,14 +64,14 @@ html(lang='en')
           .contacts-action.info-for__action
             .contacts-action__container
               form#form-info-for.form.contacts__form(action='post') 
-                div
-                  label(for='info-for-select') 
-                    strong Тип звернення
-                    select#info-for-select(name='select', form='form-info-for')
-                      option(value='value 1', selected) value 1
-                      option(value='value 2') value 2
-                      option(value='value 3') value 3
-                    span.wpcf7-not-valid-tip Невірний формат
+                //- div
+                //-   label(for='info-for-select') 
+                //-     strong Тип звернення
+                //-     select#info-for-select(name='select', form='form-info-for')
+                //-       option(value='value 1', selected) value 1
+                //-       option(value='value 2') value 2
+                //-       option(value='value 3') value 3
+                //-     span.wpcf7-not-valid-tip Невірний формат
 
                 div
                   label(for='info-for-name') 
@@ -103,6 +103,8 @@ html(lang='en')
 
                 p
                   button(type='submit') Відправити
+                  span Натискаючи на кнопку "Відправити" ви погоджуєтесь з
+                    a(href='#', target='_blank', rel='noreferrer') умовами конфіденційності Persona Patman
 
     include @/layout/footer.pug
 

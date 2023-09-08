@@ -88,7 +88,7 @@ ol {
     max-width: px-to-rem(218);
   }
   @include viewport-phone {
-    max-width: px-to-rem(218);
+    max-width: px-to-rem(186);
   }
 
   img,
@@ -114,10 +114,10 @@ section,
     padding: px-to-rem(60) 0;
   }
   @include viewport-tablet {
-    padding: px-to-rem(60) 0;
+    padding: px-to-rem(42) 0;
   }
   @include viewport-phone {
-    padding: px-to-rem(60) 0;
+    padding: px-to-rem(30) 0;
   }
 }
 
@@ -235,6 +235,15 @@ section,
   // }
 }
 
+.search {
+  display: flex;
+  align-items: center;
+
+  > * + * {
+    margin-left: px-to-rem(14);
+  }
+}
+
 //templates
 @import './layout/form';
 @import './layout/header';
@@ -266,3 +275,5 @@ section,
 @import './layout/contacts';
 @import './layout/case-catalog';
 @import './layout/case-one';
+@import './layout/pagination';
+@import './layout/pro-bono';

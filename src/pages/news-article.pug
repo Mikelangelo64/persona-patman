@@ -1,5 +1,5 @@
 -
-  const breadcrumbsName = 'Persona Patman провела зустріч з компаніями-членами Латвійської торгово-промислової палати з метою обговорення потреб латвійських компаній в рекрутингових послугах';
+  const breadcrumbsName = 'Новини';
 
   const classTypography = 'news-article__typography'
 
@@ -20,26 +20,26 @@
         </p>
       `
     },
-    {
-      type: 'text',
-      data: `
-        <p>
-          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
-        </p>
-      `
-    },
-    {
-      type: 'image',
-      data: '@/assets/img/news/typography-1.jpg'
-    },
-    {
-      type: 'text',
-      data: `
-        <p>
-          Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
-        </p>
-      `
-    }
+    //- {
+    //-   type: 'text',
+    //-   data: `
+    //-     <p>
+    //-       Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+    //-     </p>
+    //-   `
+    //- },
+    //- {
+    //-   type: 'image',
+    //-   data: '@/assets/img/news/typography-1.jpg'
+    //- },
+    //- {
+    //-   type: 'text',
+    //-   data: `
+    //-     <p>
+    //-       Our client engaged us to obtain lawful permanent residence for its new CEO, not only to ensure the stability of the company, but also to enable his spouse to legally work as soon as possible. The most common route for obtaining a green card requires advertising the job in a variety of channels, including the job title, requirements and company name. However, it would have caused instability among the company’s staff, customers and investors if they saw that the company was recruiting a new CEO. We needed to come up with a solution that was more discreet.
+    //-     </p>
+    //-   `
+    //- }
   ];
 
 doctype html
@@ -65,6 +65,12 @@ html(lang='en')
               alt='article-banner',
               loading='lazy'
             )
+
+          .date.news-article-date
+            .date__label
+              img(src=require('@/assets/img/date.svg'), alt='date')
+
+            time.date__value(datatime='2023-07-22') 22.07.2023
 
           h1.news-article__title Persona Patman провела зустріч з компаніями-членами Латвійської торгово-промислової палати з метою обговорення потреб латвійських компаній в рекрутингових послугах
 

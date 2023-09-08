@@ -139,6 +139,14 @@ class Popup {
         this._video?.pause();
       }
     });
+
+    if (this._parent.classList.contains('popup-search')) {
+      window.addEventListener('scroll', () => {
+        if (this._parent.classList.contains('_opened')) {
+          this._timeline?.reverse();
+        }
+      });
+    }
   }
 
   initOpen(popupArr: Popup[]) {

@@ -165,11 +165,16 @@
       padding-top: 61.931%;
     }
   }
+
+  //.news-list-date 
+  &-date {
+    margin-top: px-to-rem(24);
+    margin-bottom: px-to-rem(10);
+  }
   
   //.news-list__title 
   &__title {
     @include text-heading-3;
-    margin-top: px-to-rem(24);
 
     @include transition(color 0.4s);
 
@@ -190,6 +195,11 @@
   &__description {
     flex: 1 0 auto;
     opacity: 0.96;
+
+    &::after {
+      content: '...';
+      display: inline-block;
+    }
   }
   
   //.news-list-more 
@@ -239,9 +249,14 @@
       height: auto;
     }
   }
+
+  //.news-article-date 
+  &-date {
+    margin-bottom: px-to-rem(16);
+  }
   
   //.news-article__title 
   &__title {
-    @include text-heading-inner-1;
+    @include text-heading-news-1;
   }
 }

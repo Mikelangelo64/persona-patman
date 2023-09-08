@@ -1,7 +1,9 @@
 @import '../base';
 
 .about-info {
-  padding: px-to-rem(50) 0;
+  @include viewport-desktop {
+    padding: px-to-rem(50) 0;
+  }
 
   //.about-info__wrapper 
   &__wrapper {
@@ -82,6 +84,12 @@
     margin-right: auto;
     
     color: var(--color-white);
+
+    //.about-info-slider-thumb 
+    &-thumb {
+      @include absolute-fullsize;
+      z-index: 0;
+    }
 
     //.about-info-slider__bg 
     &__bg {

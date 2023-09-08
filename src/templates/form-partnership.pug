@@ -1,7 +1,18 @@
+-
+  const parthershipDescription = `
+    <p>
+      Ми завжди прагнемо працювати з найкращими та найталановитішими.  
+    </p>
+    <br/>
+    <p>
+      Щоб приєднатися до нашої зростаючої команди професіоналів або стати компанією-партнером буд-ласка заповніть форму нижче
+    </p>
+  `;
+
 article.form-partnership
   ._container.form-partnership__container
     .form-partnership__wrapper
-      p.form-partnership__description Ми завжди прагнемо працювати з найкращими та найталановитішими, щоб приєднатися до нашої зростаючої команди професіоналів, буд-ласка заповніть форму нижче
+      .form-partnership__description!= parthershipDescription
 
       form.form.form-partnership__form(action='post') 
         div
@@ -40,3 +51,6 @@ article.form-partnership
 
         p
           button(type='submit') Відправити запит
+
+          span Натискаючи на кнопку "Відправити" ви погоджуєтесь з
+            a(href='#', target='_blank', rel='noreferrer') умовами конфіденційності Persona Patman

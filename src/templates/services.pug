@@ -51,6 +51,45 @@
       `,
       link: {}
     },
+    {
+      image: '@/assets/img/services/services-1.svg',
+      title: 'Медичні послуги',
+      typography: `
+        <ul>
+          <li>
+            Органзіація виїзду за кордон з метою лікування
+          </li>
+          <li>
+            Пошук лікарів і організація процесу розміщення
+          </li>
+          <li>
+            Послуги перекладача і хатнього персоналу
+          </li>
+        </ul>
+      `,
+      link: {}
+    },
+    {
+      image: '@/assets/img/services/services-2.svg',
+      title: 'Послуги для родини',
+      typography: `
+        <ul>
+          <li>
+            Допомога в легалізації перебування членів родини
+          </li>
+          <li>
+            Організація процесу навчання для дітей
+          </li>
+          <li>
+            Допомога з придбання/лізингу автомобіля
+          </li>
+          <li>
+            Пошук хатнього персоналу і їх легалізація
+          </li>
+        </ul>
+      `,
+      link: {}
+    },
   ];
 
 section.services
@@ -61,33 +100,32 @@ section.services
       .services__main
         .services-slider.swiper
           .swiper-wrapper
-            - for (let i=0; i<2; i++)
-              each item, index in servicesCards
-                .swiper-slide
-                  .card.services-slider__item
-                    .card__container
-                      .card__inner
-                        .card__header
-                          .card__label
+            each item, index in servicesCards
+              .swiper-slide
+                .card.services-slider__item
+                  .card__container
+                    .card__inner
+                      .card__header
+                        .card__label
+                          img(
+                            src=require(`${item.image}`),
+                            alt=`services-${index + 1}`
+                          )
+
+                        h3.card__title!= item.title
+
+                      .card__typography!= item.typography
+
+                      if item.link.name
+                        a.card-link.link-more(href=`${item.link.href}`)
+                          span.link-more__text= item.link.name
+
+                          span.link-more__label
                             img(
-                              src=require(`${item.image}`),
-                              alt=`services-${index + 1 + (i * 3)}`
+                              src=require('@/assets/img/arrow-more.svg'),
+                              alt='possibilities-details',
+                              draggable='false'
                             )
-
-                          h3.card__title!= item.title
-
-                        .card__typography!= item.typography
-
-                        if item.link.name
-                          a.card-link.link-more(href=`${item.link.href}`)
-                            span.link-more__text= item.link.name
-
-                            span.link-more__label
-                              img(
-                                src=require('@/assets/img/arrow-more.svg'),
-                                alt='possibilities-details',
-                                draggable='false'
-                              )
 
         .services-slider-controls
           .services-slider-pagination pagination

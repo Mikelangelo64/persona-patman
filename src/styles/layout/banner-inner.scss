@@ -15,6 +15,10 @@
     padding: px-to-rem(64) 0;
   }
 
+  @include viewport-phone {
+    margin-bottom: px-to-rem(30);
+  }
+
   //.banner-inner__container
   &__container {
     position: relative;

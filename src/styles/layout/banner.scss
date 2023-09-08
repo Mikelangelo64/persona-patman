@@ -220,9 +220,10 @@
       @include absolute-fullsize;
       z-index: 1;
 
-      background-image: linear-gradient(120deg, rgba(var(--color-blue-050--rgb), 0.7) 0, rgba(var(--color-blue-050--rgb), 0) 64%);
       
-      @include viewport-desktop {
+      @include viewport-tablet-min {
+        background-image: linear-gradient(120deg, rgba(var(--color-blue-050--rgb), 0.7) 0, rgba(var(--color-blue-050--rgb), 0) 64%);
+        
         @media (min-width: 1441px) {
           background-image: linear-gradient(90deg, 
           rgba(var(--color-blue-050--rgb), 1) 0, 
@@ -230,6 +231,10 @@
           rgba(var(--color-black-100--rgb), 0) 44%
         );
         }
+      }
+
+      @include viewport-phone {
+        background-image: linear-gradient(120deg, rgba(var(--color-blue-050--rgb), 0.7) 0, rgba(var(--color-blue-050--rgb), 0) 90%);
       }
     }
 
