@@ -16,12 +16,12 @@ export const init = () => {
 
   fadeContentInit();
 
-  const search = document.querySelector<HTMLButtonElement>('.header__search');
-  if (search) {
-    search.addEventListener('click', () => {
-      search.style.background = 'red';
-    });
-  }
+  // const search = document.querySelector<HTMLButtonElement>('.header__search');
+  // if (search) {
+  //   search.addEventListener('click', () => {
+  //     search.style.background = 'red';
+  //   });
+  // }
   // const header = document.querySelector('.header') as HTMLElement;
   // // const headerHeight = header ? header.offsetHeight : 0;
   // let isScrolled = false;
