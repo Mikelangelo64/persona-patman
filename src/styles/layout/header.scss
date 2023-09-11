@@ -73,6 +73,9 @@
     width: px-to-rem(25);
     height: px-to-rem(25);
 
+    margin: px-to-rem(-4);
+    padding: px-to-rem(4);
+
     color: var(--color-black);
 
     svg {
