@@ -5,6 +5,15 @@
   //.case-catalog__wrapper 
   &__wrapper {
     width: 100%;
+
+    > * + * {
+      @include viewport-tablet-min {
+        margin-top: px-to-rem(52);
+      }
+      @include viewport-phone {
+        margin-top: px-to-rem(36);
+      }
+    }
   }
   
   //.case-catalog__item 

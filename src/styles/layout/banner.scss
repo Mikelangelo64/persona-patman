@@ -277,6 +277,9 @@
           @include viewport-tablet-min {
             display: none;
           }
+          @include viewport-phone {
+            object-position: 100% 0;
+          }
         }
 
         @include viewport-desktop {

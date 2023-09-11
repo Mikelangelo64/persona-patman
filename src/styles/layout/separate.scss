@@ -69,4 +69,14 @@
   //.separate__description 
   // &__description {
   // }
+
+  //.separate__button 
+  &__button {
+    --color-theme: var(--color-red);
+    width: 100%;
+    max-width: max-content;
+    padding: px-to-rem(8) px-to-rem(26);
+
+    font-size: px-to-rem(14);
+  }
 }

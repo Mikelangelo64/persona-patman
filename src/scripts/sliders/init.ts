@@ -32,7 +32,7 @@ const sliderBannerInit = (sliders: Array<IInitializedSlider>) => {
         effect: 'fade',
         allowTouchMove: false,
         autoplay: {
-          delay: 6000,
+          delay: 10000,
           disableOnInteraction: false
         }
       }
