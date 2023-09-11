@@ -46,6 +46,19 @@
     padding: px-to-rem(8) px-to-rem(26);
 
     font-size: px-to-rem(14);
+
+    &.desktop {
+      @include viewport-phone {
+        display: none;
+      }
+    }
+  }
+
+  //.news-section__footer 
+  &__footer {
+    @include viewport-tablet-min {
+      display: none;
+    }
   }
 }
 
