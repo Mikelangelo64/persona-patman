@@ -16,7 +16,8 @@
 
   &.popup-search {
     --wrapper-width: unset;
-    //height: max-content;
+    position: absolute;
+    height: max-content;
     //background-color: var(--color-white);
   }
 
@@ -31,7 +32,7 @@
     }
 
     @at-root .popup.popup-search & {
-      //display: none;
+      display: none;
     }
   }
 
