@@ -1,5 +1,6 @@
 import counterInit from './counter/init';
 import fadeContentInit from './fadeContent/init';
+import imageAppearInit from './imageAppear/init';
 import languageToggle from './languageToggle/init';
 import paginationHelp from './paginationHelp/init';
 import initPopups from './popup/init';
@@ -15,6 +16,7 @@ export const init = () => {
   paginationHelp();
 
   fadeContentInit();
+  imageAppearInit();
 
   // const header = document.querySelector('.header') as HTMLElement;
   // // const headerHeight = header ? header.offsetHeight : 0;

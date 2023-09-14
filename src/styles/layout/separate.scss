@@ -38,8 +38,10 @@
     &__container {
       position: relative;
       display: flex;
+      overflow: hidden;
       clip-path: var(--separate-clip-path);
-
+      
+      transform: translateZ(0);
       background-color: var(--color-grey);
 
       &::after {

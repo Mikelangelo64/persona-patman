@@ -79,15 +79,24 @@
       
       @include viewport-phone {
         grid-template-columns: repeat(2, 1fr);
-        --nav-gap: #{px-to-rem(42)};
-
+        --nav-gap: #{px-to-rem(20)};
+        
         @media (max-width: 350px) {
+          --nav-gap: #{px-to-rem(42)};
           grid-template-columns: 1fr;
         }
       }
 
       display: grid;
       gap: var(--nav-gap);
+      
+      @include viewport-phone {
+        gap: px-to-rem(42) var(--nav-gap);
+
+        @media (max-width: 350px) {
+          gap: var(--nav-gap);
+        }
+      }
 
       > * + * {
         @include viewport-phone {
