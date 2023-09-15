@@ -17,7 +17,8 @@ const pageNames = [
   'contacts',
   'news',
   'news-article',
-  'info-for'
+  'info-for',
+  'document'
 ];
 
 const pages = pageNames.map((name) => {
